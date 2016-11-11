@@ -10,4 +10,9 @@ public class PikiPresenter implements Presenter {
         // networking...
         return "{result: production}";
     }
+
+    @Override
+    public void login(String id) {
+
+    }
 }
