@@ -16,8 +16,10 @@ import static org.mockito.Mockito.*;
 /**
  * Created by AidenChoi on 2016. 11. 7..
  */
-@RunWith(MockitoJUnitRunner.class)
 public class PikiViewTest {
+
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
 
     @Mock
     Presenter presenter;
