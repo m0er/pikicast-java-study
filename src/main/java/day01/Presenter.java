@@ -7,4 +7,6 @@ public interface Presenter {
 
     String getData();
 
+    void login(String id);
+
 }

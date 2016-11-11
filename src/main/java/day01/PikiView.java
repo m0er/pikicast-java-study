@@ -24,4 +24,8 @@ public class PikiView {
     public void showData() {
         System.out.println(data);
     }
+
+    public void login() {
+        presenter.login("some id");
+    }
 }
