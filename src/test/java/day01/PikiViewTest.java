@@ -3,11 +3,14 @@ package day01;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -50,7 +53,7 @@ public class PikiViewTest {
     public void login() {
         pikiView.login();
 
-        verify(presenter).login(argumentCaptor.capture());
+        verify(presenter).login(anyString());
 
         assertThat("some id", is(argumentCaptor.getValue()));
     }
