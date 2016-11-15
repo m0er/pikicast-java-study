@@ -13,10 +13,12 @@ import static org.hamcrest.MatcherAssert.*;
  */
 public class CourseSessionTest {
     CourseSession session;
+    Date startDate;
 
     @Before
     public void setUp() {
-        session = new CourseSession("ENGL", "101");
+        startDate = createDate(2016, 1, 4);
+        session = new CourseSession("ENGL", "101", startDate);
     }
 
     @Test
@@ -24,6 +26,7 @@ public class CourseSessionTest {
         assertThat(session.getDepartment(), is("ENGL"));
         assertThat(session.getNumber(), is("101"));
         assertThat(session.getNumberOfStudents(), is(0));
+        assertThat(session.getStartDate(), is(startDate));
     }
 
     @Test
@@ -43,17 +46,11 @@ public class CourseSessionTest {
 
     @Test
     public void courseDate() {
-        int year = 116;
-        int month = 0;
-        int date = 4;
-        Date startDate = new Date(year, month, date);
-
-        CourseSession session = new CourseSession("ABCD", "200", startDate);
-
-        year = 116;
-        month = 3;
-        date = 22;
-        Date sixteenWeeksOut = new Date(year, month, date);
+        Date sixteenWeeksOut = createDate(2016, 4, 22);
         assertThat(sixteenWeeksOut, is(session.getEndDate()));
+    }
+
+    Date createDate(int year, int month, int date) {
+        return new Date(year - 1900, month - 1, date);
     }
 }
