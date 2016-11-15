@@ -9,7 +9,6 @@ import java.util.List;
 public class CourseSession {
     private String department;
     private String number;
-    private int numberOfStudents;
     private List<Student> allStudents;
 
     public CourseSession(String department, String number) {
@@ -27,15 +26,18 @@ public class CourseSession {
     }
 
     public int getNumberOfStudents() {
-        return numberOfStudents;
+        return allStudents.size();
     }
 
     public void enroll(Student student) {
-        numberOfStudents++;
         allStudents.add(student);
     }
 
     public List<Student> getAllStudents() {
         return allStudents;
+    }
+
+    public Student get(int index) {
+        return allStudents.get(index);
     }
 }
