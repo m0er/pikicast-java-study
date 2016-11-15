@@ -3,6 +3,8 @@ package day03.sis;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.mockito.Mockito.*;
@@ -31,8 +33,14 @@ public class CourseSessionTest {
         courseSession.enroll(student1);
         assertThat(courseSession.getNumberOfStudents(), is(1));
 
+        List<Student> allStudents = courseSession.getAllStudents();
+        assertThat(allStudents.size(), is(1));
+        assertThat(allStudents.get(0), is(sameInstance(student1)));
+
         Student student2 = new Student("Caralee Devaughn");
         courseSession.enroll(student2);
         assertThat(courseSession.getNumberOfStudents(), is(2));
+
+        assertThat(allStudents.get(1), is(sameInstance(student2)));
     }
 }
