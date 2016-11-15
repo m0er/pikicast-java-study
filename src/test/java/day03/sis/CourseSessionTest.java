@@ -3,6 +3,7 @@ package day03.sis;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -50,7 +51,12 @@ public class CourseSessionTest {
         assertThat(sixteenWeeksOut, is(session.getEndDate()));
     }
 
-    Date createDate(int year, int month, int date) {
-        return new Date(year - 1900, month - 1, date);
+    Date createDate(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.clear();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+        return calendar.getTime();
     }
 }
