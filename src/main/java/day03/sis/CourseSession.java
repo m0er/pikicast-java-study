@@ -6,6 +6,7 @@ package day03.sis;
 public class CourseSession {
     private String department;
     private String number;
+    private int numberOfStudents;
 
     public CourseSession(String department, String number) {
         this.department = department;
@@ -18,5 +19,13 @@ public class CourseSession {
 
     public String getNumber() {
         return number;
+    }
+
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    public void enroll(Student student) {
+        numberOfStudents++;
     }
 }
