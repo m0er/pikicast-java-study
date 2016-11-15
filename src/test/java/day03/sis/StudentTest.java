@@ -12,12 +12,12 @@ public class StudentTest {
 
     @Test
     public void create() {
-        Student student = new Student("Jane Doe");
-        String studentName = student.getName();
-        assertThat(studentName, is("Jane Doe"));
+        final String firstStudentName = "Jane Doe";
+        Student student = new Student(firstStudentName);
+        assertThat(student.getName(), is(firstStudentName));
 
-        Student secondStudent = new Student("Joe Blow");
-        String secondStudentName = secondStudent.getName();
-        assertThat(secondStudentName, is("Joe Blow"));
+        final String secondStudentName = "Joe Blow";
+        Student secondStudent = new Student(secondStudentName);
+        assertThat(secondStudent.getName(), is(secondStudentName));
     }
 }
