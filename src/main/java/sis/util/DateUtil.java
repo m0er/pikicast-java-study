@@ -1,4 +1,4 @@
-package sis;
+package sis.util;
 
 import java.util.Calendar;
 import java.util.Date;

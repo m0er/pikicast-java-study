@@ -1,13 +1,13 @@
-package sis;
+package sis.util;
 
 import org.junit.Before;
 import org.junit.Test;
+import sis.studentinfo.CourseSession;
 
 import java.util.Date;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Created by AidenChoi on 2016. 11. 20..

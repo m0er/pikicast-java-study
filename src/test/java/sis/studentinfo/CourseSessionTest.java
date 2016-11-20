@@ -1,7 +1,9 @@
-package sis;
+package sis.studentinfo;
 
 import org.junit.Before;
 import org.junit.Test;
+import sis.studentinfo.CourseSession;
+import sis.studentinfo.Student;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;

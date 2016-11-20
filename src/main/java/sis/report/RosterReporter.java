@@ -1,4 +1,7 @@
-package sis;
+package sis.report;
+
+import sis.studentinfo.CourseSession;
+import sis.studentinfo.Student;
 
 /**
  * Created by AidenChoi on 2016. 11. 20..

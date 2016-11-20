@@ -1,10 +1,10 @@
-package sis;
+package sis.studentinfo;
 
 import org.junit.Test;
+import sis.studentinfo.Student;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Created by AidenChoi on 2016. 11. 16..

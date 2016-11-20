@@ -1,13 +1,12 @@
-package sis;
+package sis.report;
 
 import org.junit.Test;
-
-import java.util.Calendar;
-import java.util.Date;
+import sis.studentinfo.CourseSession;
+import sis.studentinfo.Student;
+import sis.util.DateUtil;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Created by AidenChoi on 2016. 11. 20..
