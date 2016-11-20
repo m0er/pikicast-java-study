@@ -9,6 +9,9 @@ import java.util.List;
  * Created by AidenChoi on 2016. 11. 16..
  */
 public class CourseSession {
+    public static final String NEWLINE = System.getProperty("line.separator");
+    public static final String ROSTER_REPORT_HEADER = "Student" + NEWLINE + "-" + NEWLINE;
+    public static final String ROSTER_REPORT_FOOTER = NEWLINE + "# students = ";
     private final String department;
     private final String number;
     private List<Student> studentList;
@@ -51,5 +54,23 @@ public class CourseSession {
         calendar.setTime(startDate);
         calendar.add(Calendar.DAY_OF_YEAR, 16 * 7 - 3);
         return calendar.getTime();
+    }
+
+    public String getRosterReport() {
+        StringBuilder buffer = new StringBuilder();
+
+        buffer.append(ROSTER_REPORT_HEADER);
+
+        Student student = studentList.get(0);
+        buffer.append(student.getName());
+        buffer.append(NEWLINE);
+
+        student = studentList.get(1);
+        buffer.append(student.getName());
+        buffer.append(NEWLINE);
+
+        buffer.append(ROSTER_REPORT_FOOTER + studentList.size() + NEWLINE);
+
+        return buffer.toString();
     }
 }
