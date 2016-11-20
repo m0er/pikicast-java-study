@@ -14,22 +14,18 @@ public class CourseSession {
     private List<Student> studentList;
     private Date startDate;
 
-    public CourseSession(String department, String number) {
+    public CourseSession(String department, String number, Date startDate) {
         this.department = department;
         this.number = number;
         this.studentList = new ArrayList<>();
-    }
-
-    public CourseSession(String department, String number, Date startDate) {
-        this(department, number);
         this.startDate = startDate;
     }
 
-    public String getDepartment() {
+    String getDepartment() {
         return department;
     }
 
-    public String getNumber() {
+    String getNumber() {
         return number;
     }
 
@@ -37,11 +33,11 @@ public class CourseSession {
         studentList.add(student);
     }
 
-    public int getStudentCount() {
+    int getStudentCount() {
         return studentList.size();
     }
 
-    public Student getStudent(int position) {
+    Student getStudent(int position) {
         return studentList.get(position - 1);
     }
 

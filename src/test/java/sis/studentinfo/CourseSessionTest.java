@@ -2,8 +2,9 @@ package sis.studentinfo;
 
 import org.junit.Before;
 import org.junit.Test;
-import sis.studentinfo.CourseSession;
-import sis.studentinfo.Student;
+import sis.util.DateUtil;
+
+import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -15,10 +16,11 @@ public class CourseSessionTest {
     private CourseSession session;
     private String department = "이산수학";
     private String number = "100";
+    private Date startDate = new DateUtil().createDate(2016, 1, 4);
 
     @Before
     public void setUp() {
-        session = new CourseSession(department, number);
+        session = new CourseSession(department, number, startDate);
     }
 
     @Test
