@@ -22,6 +22,7 @@ public class RosterReporterTest {
         session.enroll(new Student("B"));
 
         String rosterReport = new RosterReporter(session).getReport();
+        System.out.println(rosterReport);
         assertThat(rosterReport, is(
                 RosterReporter.ROSTER_REPORT_HEADER +
                         "A" + RosterReporter.NEWLINE +
