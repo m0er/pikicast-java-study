@@ -49,20 +49,6 @@ public class CourseSessionTest {
         assertThat(courseSession.getEndDate(), is(createDate(2016, 4, 22)));
     }
 
-    @Test
-    public void rosterReport() {
-        session.enroll(new Student("A"));
-        session.enroll(new Student("B"));
-
-        String rosterReport = session.getRosterReport();
-        assertThat(rosterReport, is(
-                CourseSession.ROSTER_REPORT_HEADER +
-                "A" + CourseSession.NEWLINE +
-                "B" + CourseSession.NEWLINE +
-                CourseSession.ROSTER_REPORT_FOOTER + "2" + CourseSession.NEWLINE)
-        );
-    }
-
     Date createDate(int year, int month, int day) {
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
