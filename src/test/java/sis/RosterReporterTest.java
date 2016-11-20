@@ -16,7 +16,7 @@ public class RosterReporterTest {
 
     @Test
     public void rosterReport() {
-        CourseSession session = new CourseSession("이산수학", "100", createDate(2016, 1, 4));
+        CourseSession session = new CourseSession("이산수학", "100", new DateUtil().createDate(2016, 1, 4));
 
         session.enroll(new Student("A"));
         session.enroll(new Student("B"));
@@ -28,14 +28,5 @@ public class RosterReporterTest {
                         "B" + RosterReporter.NEWLINE +
                         RosterReporter.ROSTER_REPORT_FOOTER + "2" + RosterReporter.NEWLINE)
         );
-    }
-
-    Date createDate(int year, int month, int day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.clear();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month - 1);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-        return calendar.getTime();
     }
 }

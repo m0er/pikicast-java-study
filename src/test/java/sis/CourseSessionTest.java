@@ -3,9 +3,6 @@ package sis;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
@@ -41,20 +38,5 @@ public class CourseSessionTest {
 
         assertThat(session.getStudent(2), is(student2));
         assertThat(session.getStudentCount(), is(2));
-    }
-
-    @Test
-    public void startDate() {
-        CourseSession courseSession = new CourseSession(department, number, createDate(2016, 1, 4));
-        assertThat(courseSession.getEndDate(), is(createDate(2016, 4, 22)));
-    }
-
-    Date createDate(int year, int month, int day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.clear();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month - 1);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-        return calendar.getTime();
     }
 }
