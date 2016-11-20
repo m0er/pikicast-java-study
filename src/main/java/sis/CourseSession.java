@@ -61,13 +61,10 @@ public class CourseSession {
 
         buffer.append(ROSTER_REPORT_HEADER);
 
-        Student student = studentList.get(0);
-        buffer.append(student.getName());
-        buffer.append(NEWLINE);
-
-        student = studentList.get(1);
-        buffer.append(student.getName());
-        buffer.append(NEWLINE);
+        for (Student student : studentList) {
+            buffer.append(student.getName());
+            buffer.append(NEWLINE);
+        }
 
         buffer.append(ROSTER_REPORT_FOOTER + studentList.size() + NEWLINE);
 
