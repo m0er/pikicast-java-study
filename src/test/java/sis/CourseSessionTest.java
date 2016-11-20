@@ -5,11 +5,9 @@ import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
-import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.hamcrest.MatcherAssert.*;
 
 /**
  * Created by AidenChoi on 2016. 11. 16..
@@ -49,6 +47,20 @@ public class CourseSessionTest {
     public void startDate() {
         CourseSession courseSession = new CourseSession(department, number, createDate(2016, 1, 4));
         assertThat(courseSession.getEndDate(), is(createDate(2016, 4, 22)));
+    }
+
+    @Test
+    public void rosterReport() {
+        session.enroll(new Student("A"));
+        session.enroll(new Student("B"));
+
+        String rosterReport = session.getRosterReport();
+        assertThat(rosterReport, is(
+                CourseSession.ROSTER_REPORT_HEADER +
+                "A" + CourseSession.NEWLINE +
+                "B" + CourseSession.NEWLINE +
+                CourseSession.ROSTER_REPORT_FOOTER + "2" + CourseSession.NEWLINE)
+        );
     }
 
     Date createDate(int year, int month, int day) {
