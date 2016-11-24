@@ -1,15 +1,13 @@
-package sis;
+package sis.studentinfo;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import sis.studentinfo.CourseSession;
+import sis.studentinfo.Student;
+import sis.util.DateUtil;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Created by AidenChoi on 2016. 11. 16..
@@ -21,7 +19,7 @@ public class CourseSessionTest {
 
     @Before
     public void setUp() {
-        session = new CourseSession(department, number);
+        session = new CourseSession(department, number, DateUtil.createDate(2016, 1, 4));
     }
 
     @Test
@@ -43,20 +41,5 @@ public class CourseSessionTest {
 
         assertThat(session.getStudent(2), is(student2));
         assertThat(session.getStudentCount(), is(2));
-    }
-
-    @Test
-    public void startDate() {
-        CourseSession courseSession = new CourseSession(department, number, createDate(2016, 1, 4));
-        assertThat(courseSession.getEndDate(), is(createDate(2016, 4, 22)));
-    }
-
-    Date createDate(int year, int month, int day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.clear();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month - 1);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-        return calendar.getTime();
     }
 }

@@ -1,4 +1,4 @@
-package sis;
+package sis.studentinfo;
 
 /**
  * Created by AidenChoi on 2016. 11. 16..
