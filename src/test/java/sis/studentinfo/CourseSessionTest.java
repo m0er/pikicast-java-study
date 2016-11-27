@@ -6,6 +6,8 @@ import sis.studentinfo.CourseSession;
 import sis.studentinfo.Student;
 import sis.util.DateUtil;
 
+import java.util.Date;
+
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -16,10 +18,11 @@ public class CourseSessionTest {
     private CourseSession session;
     private String department = "이산수학";
     private String number = "100";
+    private Date startDate = DateUtil.createDate(2016, 1, 4);
 
     @Before
     public void setUp() {
-        session = new CourseSession(department, number, DateUtil.createDate(2016, 1, 4));
+        session = new CourseSession(department, number, startDate);
     }
 
     @Test
@@ -41,5 +44,18 @@ public class CourseSessionTest {
 
         assertThat(session.getStudent(2), is(student2));
         assertThat(session.getStudentCount(), is(2));
+    }
+
+    @Test
+    public void count() {
+        CourseSession.count = 0;
+        createCourseSession();
+        assertThat(CourseSession.count, is(1));
+        createCourseSession();
+        assertThat(CourseSession.count, is(2));
+    }
+
+    private CourseSession createCourseSession() {
+        return new CourseSession("더미 강좌", "101", startDate);
     }
 }
