@@ -22,7 +22,7 @@ public class CourseSessionTest {
 
     @Before
     public void setUp() {
-        session = new CourseSession(department, number, startDate);
+        session = CourseSession.create(department, number, startDate);
     }
 
     @Test
@@ -57,6 +57,6 @@ public class CourseSessionTest {
     }
 
     private CourseSession createCourseSession() {
-        return new CourseSession("더미 강좌", "101", startDate);
+        return CourseSession.create("더미 강좌", "101", startDate);
     }
 }
