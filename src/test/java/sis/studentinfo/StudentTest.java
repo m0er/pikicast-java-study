@@ -37,4 +37,16 @@ public class StudentTest {
         assertThat(student.getCredits(), is(Student.CREDITS_REQUIRED_FOR_FULL_TIME));
         assertThat(student.isFullTime(), is(true));
     }
+
+    @Test
+    public void inState() {
+        Student student = new Student("a");
+        assertThat(student.isInState(), is(false));
+
+        student.setState(Student.IN_STATE);
+        assertThat(student.isInState(), is(true));
+
+        student.setState("서울");
+        assertThat(student.isInState(), is(false));
+    }
 }
