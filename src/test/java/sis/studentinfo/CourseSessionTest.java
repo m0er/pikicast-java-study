@@ -70,6 +70,10 @@ public class CourseSessionTest {
         student.addCredits(4);
         assertThat(student.getCredits(), is(7));
         assertThat(student.isFullTime(), is(false));
+
+        student.addCredits(5);
+        assertThat(student.getCredits(), is(12));
+        assertThat(student.isFullTime(), is(true));
     }
 
     private CourseSession createCourseSession() {
