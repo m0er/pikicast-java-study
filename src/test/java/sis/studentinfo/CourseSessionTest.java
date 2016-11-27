@@ -15,6 +15,7 @@ import static org.hamcrest.CoreMatchers.*;
  * Created by AidenChoi on 2016. 11. 16..
  */
 public class CourseSessionTest {
+    private static final int CREDITS = 3;
     private CourseSession session;
     private String department = "이산수학";
     private String number = "100";
@@ -22,7 +23,7 @@ public class CourseSessionTest {
 
     @Before
     public void setUp() {
-        session = CourseSession.create(department, number, startDate);
+        session = createCourseSession();
     }
 
     @Test
@@ -36,12 +37,14 @@ public class CourseSessionTest {
         Student student1 = new Student("학생1");
         session.enroll(student1);
 
+        assertThat(student1.getCredits(), is(CREDITS));
         assertThat(session.getStudent(1), is(student1));
         assertThat(session.getStudentCount(), is(1));
 
         Student student2 = new Student("학생2");
         session.enroll(student2);
 
+        assertThat(student2.getCredits(), is(CREDITS));
         assertThat(session.getStudent(2), is(student2));
         assertThat(session.getStudentCount(), is(2));
     }
@@ -77,6 +80,8 @@ public class CourseSessionTest {
     }
 
     private CourseSession createCourseSession() {
-        return CourseSession.create("더미 강좌", "101", startDate);
+        final CourseSession session = CourseSession.create("더미 강좌", "101", startDate);
+        session.setNumberOfCredits(CourseSessionTest.CREDITS);
+        return session;
     }
 }
