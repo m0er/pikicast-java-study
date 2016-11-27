@@ -56,6 +56,22 @@ public class CourseSessionTest {
         assertThat(CourseSession.getCount(), is(2));
     }
 
+    @Test
+    public void credits() {
+        Student student = new Student("a");
+
+        assertThat(student.getCredits(), is(0));
+        assertThat(student.isFullTime(), is(false));
+
+        student.addCredits(3);
+        assertThat(student.isFullTime(), is(false));
+        assertThat(student.getCredits(), is(3));
+
+        student.addCredits(4);
+        assertThat(student.getCredits(), is(7));
+        assertThat(student.isFullTime(), is(false));
+    }
+
     private CourseSession createCourseSession() {
         return CourseSession.create("더미 강좌", "101", startDate);
     }
