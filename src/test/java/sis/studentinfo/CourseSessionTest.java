@@ -49,11 +49,11 @@ public class CourseSessionTest {
     @Test
     public void count() {
         // 클래스 멤버 변수는 이 클래스를 읽어 들일 때 초기화 하고 관리되기 때문에 초기화 되지 않는다.
-        CourseSession.count = 0;
+        CourseSession.resetCount();
         createCourseSession();
-        assertThat(CourseSession.count, is(1));
+        assertThat(CourseSession.getCount(), is(1));
         createCourseSession();
-        assertThat(CourseSession.count, is(2));
+        assertThat(CourseSession.getCount(), is(2));
     }
 
     private CourseSession createCourseSession() {

@@ -10,7 +10,7 @@ import java.util.List;
  * Created by AidenChoi on 2016. 11. 16..
  */
 public class CourseSession {
-    public static int count;
+    private static int count;
     private final String department;
     private final String number;
     private List<Student> students;
@@ -22,6 +22,14 @@ public class CourseSession {
         this.students = new ArrayList<>();
         this.startDate = startDate;
         CourseSession.count = CourseSession.count + 1;
+    }
+
+    private static void incrementCount() {
+        count = count + 1;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     String getDepartment() {
@@ -46,5 +54,9 @@ public class CourseSession {
 
     public Date getEndDate() {
         return DateUtil.getEndDate(startDate);
+    }
+
+    public static void resetCount() {
+        count = 0;
     }
 }
