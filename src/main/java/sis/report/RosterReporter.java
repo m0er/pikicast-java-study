@@ -26,18 +26,18 @@ public class RosterReporter {
         return builder.toString();
     }
 
-    private void writeFooter(StringBuilder builder) {
+    public void writeFooter(StringBuilder builder) {
         builder.append(ROSTER_REPORT_FOOTER);
         builder.append(students.size() + SEPARATOR);
     }
 
-    private void writeBody(StringBuilder builder) {
+    public void writeBody(StringBuilder builder) {
         for (Student student : students) {
             builder.append(student.getName() + SEPARATOR);
         }
     }
 
-    private void writeHeader(StringBuilder builder) {
+    public void writeHeader(StringBuilder builder) {
         builder.append(ROSTER_REPORT_HEADER);
     }
 }
