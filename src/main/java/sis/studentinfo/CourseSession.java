@@ -14,6 +14,7 @@ public class CourseSession {
 
     private final String department;
     private final String number;
+    private int credits;
     private List<Student> students;
     private Date startDate;
 
@@ -22,6 +23,7 @@ public class CourseSession {
         this.number = number;
         this.students = new ArrayList<>();
         this.startDate = startDate;
+        this.credits = 3;
     }
 
     private static void incrementCourseSessionCount() {
@@ -45,6 +47,7 @@ public class CourseSession {
     }
 
     public void enroll(Student student) {
+        student.addCredits(credits);
         students.add(student);
     }
 
@@ -63,5 +66,9 @@ public class CourseSession {
     public static CourseSession create(String department, String number, Date startDate) {
         CourseSession.incrementCourseSessionCount();
         return new CourseSession(department, number, startDate);
+    }
+
+    public int getCredits() {
+        return credits;
     }
 }
