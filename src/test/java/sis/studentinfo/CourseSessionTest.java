@@ -72,4 +72,20 @@ public class CourseSessionTest {
         CourseSession.create(department, number, startDate);
         assertThat(CourseSession.getCourseSessionCount(), is(1));
     }
+
+    @Test
+    public void comparable() {
+        final Date date = new Date();
+        CourseSession sessionA = CourseSession.create("A", "101", date);
+        CourseSession sessionB = CourseSession.create("B", "101", date);
+        assertThat(sessionA.compareTo(sessionB), is(-1));
+        assertThat(sessionB.compareTo(sessionA), is(1));
+
+        CourseSession sessionC = CourseSession.create("A", "101", date);
+        assertThat(sessionA.compareTo(sessionC), is(0));
+
+        CourseSession sessionD = CourseSession.create("A", "210", date);
+        assertThat(sessionC.compareTo(sessionD), is(-1));
+        assertThat(sessionD.compareTo(sessionC), is(1));
+    }
 }

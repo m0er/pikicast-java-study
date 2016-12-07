@@ -24,11 +24,15 @@ public class CourseReportTest {
         report.add(CourseSession.create("이산수학", "200", date));
         report.add(CourseSession.create("대학영어", "101", date));
         report.add(CourseSession.create("C 프로그래밍", "401", date));
+        report.add(CourseSession.create("이산수학", "220", date));
+        report.add(CourseSession.create("C 프로그래밍", "330", date));
 
         assertThat(report.text(), is(
+                "C 프로그래밍 330" + NEWLINE +
+                "C 프로그래밍 401" + NEWLINE +
                 "대학영어 101" + NEWLINE +
                 "이산수학 200" + NEWLINE +
-                "C 프로그래밍 401" + NEWLINE));
+                "이산수학 220" + NEWLINE));
     }
 
     @Test
