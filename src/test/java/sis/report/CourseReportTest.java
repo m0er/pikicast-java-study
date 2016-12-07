@@ -52,4 +52,11 @@ public class CourseReportTest {
         assertThat(sortedList.get(2), is("Heller"));
         assertThat(sortedList.get(3), is("Kafka"));
     }
+
+    @Test
+    public void stringCompareTo() {
+        assertThat("A".compareTo("B"), is(-1));
+        assertThat("A".compareTo("A"), is(0));
+        assertThat("B".compareTo("A"), is(1));
+    }
 }
