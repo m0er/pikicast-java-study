@@ -38,11 +38,11 @@ public class CourseSession {
         CourseSession.courseSessionCount = 0;
     }
 
-    String getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    String getNumber() {
+    public String getNumber() {
         return number;
     }
 
