@@ -1,6 +1,7 @@
 package quiz
 
 import org.junit.Assert.fail
+import org.junit.Before
 import org.junit.Test
 
 /**
@@ -9,7 +10,7 @@ import org.junit.Test
 class ElevatorTest {
     lateinit var elevator: Elevator
 
-    @Test
+    @Before
     fun create() {
         elevator = Elevator()
     }
