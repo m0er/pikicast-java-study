@@ -1,5 +1,6 @@
 package quiz
 
+import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
@@ -17,7 +18,7 @@ class ElevatorTest {
 
     @Test
     fun _총_10개_층을_가지고_있음() {
-        fail()
+        assertEquals(elevator.getFloorCount(), 10)
     }
 
     @Test
