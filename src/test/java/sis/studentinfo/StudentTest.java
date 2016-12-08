@@ -5,11 +5,13 @@ import sis.studentinfo.Student;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.closeTo;
 
 /**
  * Created by AidenChoi on 2016. 11. 16..
  */
 public class StudentTest {
+    private static final double GRADE_TOLERANCE = 0.05;
 
     @Test
     public void create() {
@@ -49,5 +51,26 @@ public class StudentTest {
 
         student.setState("서울");
         assertThat(student.isInState(), is(false));
+    }
+
+    @Test
+    public void calculateGpa() {
+        Student student = new Student("A");
+        assertThat(student.getGpa(), is(0.0));
+
+        student.addGrade("A");
+        assertThat(student.getGpa(), is(closeTo(4.0, GRADE_TOLERANCE)));
+
+        student.addGrade("B");
+        assertThat(student.getGpa(), is(closeTo(3.5, GRADE_TOLERANCE)));
+
+        student.addGrade("C");
+        assertThat(student.getGpa(), is(closeTo(3.0, GRADE_TOLERANCE)));
+
+        student.addGrade("D");
+        assertThat(student.getGpa(), is(closeTo(2.5, GRADE_TOLERANCE)));
+
+        student.addGrade("F");
+        assertThat(student.getGpa(), is(closeTo(2.0, GRADE_TOLERANCE)));
     }
 }
