@@ -1,5 +1,6 @@
 package sis.studentinfo;
 
+import org.jetbrains.annotations.NotNull;
 import sis.util.DateUtil;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by AidenChoi on 2016. 11. 16..
  */
-public class CourseSession {
+public class CourseSession implements Comparable<CourseSession> {
     private static int courseSessionCount;
 
     private final String department;
@@ -38,11 +39,11 @@ public class CourseSession {
         CourseSession.courseSessionCount = 0;
     }
 
-    String getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    String getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -70,5 +71,14 @@ public class CourseSession {
 
     public int getCredits() {
         return credits;
+    }
+
+    @Override
+    public int compareTo(@NotNull CourseSession o) {
+        int compare = department.compareTo(o.department);
+        if (compare == 0) {
+            return number.compareTo(o.number);
+        }
+        return compare;
     }
 }
