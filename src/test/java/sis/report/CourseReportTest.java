@@ -35,32 +35,4 @@ public class CourseReportTest {
                 "이산수학 220" + NEWLINE));
     }
 
-    @Test
-    public void sortStringsInPlace() {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("Heller");
-        list.add("Kafka");
-        list.add("Camus");
-        list.add("Boyle");
-
-        ArrayList<String> sortedList = new ArrayList<>(list);
-        Collections.sort(sortedList);
-
-        assertThat(list.get(0), is("Heller"));
-        assertThat(list.get(1), is("Kafka"));
-        assertThat(list.get(2), is("Camus"));
-        assertThat(list.get(3), is("Boyle"));
-
-        assertThat(sortedList.get(0), is("Boyle"));
-        assertThat(sortedList.get(1), is("Camus"));
-        assertThat(sortedList.get(2), is("Heller"));
-        assertThat(sortedList.get(3), is("Kafka"));
-    }
-
-    @Test
-    public void stringCompareTo() {
-        assertThat("A".compareTo("B"), is(-1));
-        assertThat("A".compareTo("A"), is(0));
-        assertThat("B".compareTo("A"), is(1));
-    }
 }
