@@ -56,21 +56,25 @@ public class StudentTest {
     @Test
     public void calculateGpa() {
         Student student = new Student("A");
-        assertThat(student.getGpa(), is(0.0));
+        assertGpa(student, 0.0);
 
         student.addGrade("A");
-        assertThat(student.getGpa(), is(closeTo(4.0, GRADE_TOLERANCE)));
+        assertGpa(student, 4.0);
 
         student.addGrade("B");
-        assertThat(student.getGpa(), is(closeTo(3.5, GRADE_TOLERANCE)));
+        assertGpa(student, 3.5);
 
         student.addGrade("C");
-        assertThat(student.getGpa(), is(closeTo(3.0, GRADE_TOLERANCE)));
+        assertGpa(student, 3.0);
 
         student.addGrade("D");
-        assertThat(student.getGpa(), is(closeTo(2.5, GRADE_TOLERANCE)));
+        assertGpa(student, 2.5);
 
         student.addGrade("F");
-        assertThat(student.getGpa(), is(closeTo(2.0, GRADE_TOLERANCE)));
+        assertGpa(student, 2.0);
+    }
+
+    private void assertGpa(Student student, double expectedGpa) {
+        assertThat(student.getGpa(), is(closeTo(expectedGpa, GRADE_TOLERANCE)));
     }
 }
