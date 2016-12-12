@@ -1,27 +1,34 @@
 package sis.studentinfo;
 
+import org.junit.Before;
 import org.junit.Test;
 import sis.studentinfo.Student;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.closeTo;
 
 /**
  * Created by AidenChoi on 2016. 11. 16..
  */
 public class StudentTest {
+    private static final double GRADE_TOLERANCE = 0.5;
+    private static final String STUDENT_NAME = "김제네스";
+
+    private Student student;
+
+    @Before
+    public void setUp() {
+        student = StudentFactory.create(STUDENT_NAME);
+    }
 
     @Test
     public void create() {
-        String studentName = "김제네스";
-        Student student = new Student(studentName);
-        assertThat(student.getName(), is(studentName));
+        assertThat(student.getName(), is(STUDENT_NAME));
     }
 
     @Test
     public void studentStatus() {
-        Student student = new Student("김제네스");
-
         assertThat(student.getCredits(), is(0));
         assertThat(student.isFullTime(), is(false));
 
@@ -41,7 +48,6 @@ public class StudentTest {
 
     @Test
     public void inState() {
-        Student student = new Student("이반");
         assertThat(student.isInState(), is(false));
 
         student.setState(Student.IN_STATE);
@@ -49,5 +55,29 @@ public class StudentTest {
 
         student.setState("서울");
         assertThat(student.isInState(), is(false));
+    }
+
+    @Test
+    public void calculateGpa() {
+        assertGpa(student.getGpa(), 0);
+
+        student.addGrade(Student.Grade.A);
+        assertGpa(student.getGpa(), 4.0);
+
+        student.addGrade(Student.Grade.B);
+        assertGpa(student.getGpa(), 3.5);
+
+        student.addGrade(Student.Grade.C);
+        assertGpa(student.getGpa(), 3.0);
+
+        student.addGrade(Student.Grade.D);
+        assertGpa(student.getGpa(), 2.5);
+
+        student.addGrade(Student.Grade.F);
+        assertGpa(student.getGpa(), 2.0);
+    }
+
+    private void assertGpa(double origGpa, double expectedGpa) {
+        assertThat(origGpa, is(closeTo(expectedGpa, GRADE_TOLERANCE)));
     }
 }

@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import sis.report.RosterReporter;
 import sis.studentinfo.Student;
+import sis.studentinfo.StudentFactory;
 
 import java.util.Arrays;
 
@@ -17,7 +18,7 @@ public class RosterReporterTest {
 
     @Test
     public void rosterReport() {
-        RosterReporter rosterReporter = new RosterReporter(Arrays.asList(new Student("A"), new Student("B")));
+        RosterReporter rosterReporter = new RosterReporter(Arrays.asList(StudentFactory.create("A"), StudentFactory.create("B")));
         String rosterReport = rosterReporter.getRosterReport();
         assertThat(rosterReport, is(
                 RosterReporter.ROSTER_REPORT_HEADER +
