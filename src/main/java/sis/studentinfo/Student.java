@@ -15,7 +15,7 @@ public class Student {
     }
 
     private List<Grade> grades = new ArrayList<>();
-    private GradeStrategy gradeStrategy = new RegularGradeStrategy();
+    private GradeStrategy gradeStrategy = new BasicGradeStrategy();
     private String name;
     private int credits;
     private String state;
