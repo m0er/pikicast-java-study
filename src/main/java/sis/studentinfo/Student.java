@@ -10,7 +10,7 @@ public class Student {
     public static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
     public static final String IN_STATE = "용인";
 
-    enum Grade {
+    public enum Grade {
         A, B, C, D, F
     }
 
