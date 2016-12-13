@@ -15,10 +15,10 @@ public class ReportCardTest {
     @Test
     public void message() {
         ReportCard card = new ReportCard();
-        assertThat(ReportCard.A_MESSAGE, card.getMessage(Student.Grade.A));
-        assertThat(ReportCard.B_MESSAGE, card.getMessage(Student.Grade.B));
-        assertThat(ReportCard.C_MESSAGE, card.getMessage(Student.Grade.C));
-        assertThat(ReportCard.D_MESSAGE, card.getMessage(Student.Grade.D));
-        assertThat(ReportCard.F_MESSAGE, card.getMessage(Student.Grade.F));
+        assertThat(ReportCard.A_MESSAGE, is(card.getMessage(Student.Grade.A)));
+        assertThat(ReportCard.B_MESSAGE, is(card.getMessage(Student.Grade.B)));
+        assertThat(ReportCard.C_MESSAGE, is(card.getMessage(Student.Grade.C)));
+        assertThat(ReportCard.D_MESSAGE, is(card.getMessage(Student.Grade.D)));
+        assertThat(ReportCard.F_MESSAGE, is(card.getMessage(Student.Grade.F)));
     }
 }
