@@ -11,7 +11,21 @@ public class Student {
     public static final String IN_STATE = "용인";
 
     public enum Grade {
-        A, B, C, D, F
+        A(4),
+        B(3),
+        C(2),
+        D(1),
+        F(0);
+
+        private int scores;
+
+        Grade(int scores) {
+            this.scores = scores;
+        }
+
+        int getScores() {
+            return scores;
+        }
     }
 
     private List<Grade> grades = new ArrayList<>();
