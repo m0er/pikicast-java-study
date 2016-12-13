@@ -6,10 +6,20 @@ package sis.studentinfo;
 public class NationalMeritGradeStrategy implements GradeStrategy {
     @Override
     public double getScoreByGrade(Student.Grade grade) {
-        if (grade == Student.Grade.A) return 5.0;
-        if (grade == Student.Grade.B) return 4.0;
-        if (grade == Student.Grade.C) return 3.0;
-        if (grade == Student.Grade.D) return 2.0;
-        return 0;
+        double scores = basicGradeScore(grade);
+        if (scores > 0) {
+            scores += 1;
+        }
+        return scores;
+    }
+
+    public int basicGradeScore(Student.Grade grade) {
+        switch (grade) {
+            case A: return 4;
+            case B: return 3;
+            case C: return 2;
+            case D: return 1;
+            default: return 0;
+        }
     }
 }
