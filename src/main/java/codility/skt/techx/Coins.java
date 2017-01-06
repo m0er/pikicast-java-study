@@ -1,4 +1,4 @@
-package codility;
+package codility.skt.techx;
 
 /**
  * Created by AidenChoi on 2016. 12. 4..

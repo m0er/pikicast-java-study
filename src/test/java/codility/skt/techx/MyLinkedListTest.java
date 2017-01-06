@@ -1,5 +1,6 @@
-package codility;
+package codility.skt.techx;
 
+import codility.skt.techx.MyLinkedList;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.*;

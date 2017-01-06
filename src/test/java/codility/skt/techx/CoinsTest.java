@@ -1,12 +1,11 @@
-package codility;
+package codility.skt.techx;
 
+import codility.skt.techx.Coins;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Created by AidenChoi on 2016. 12. 4..

@@ -1,4 +1,4 @@
-package codility;
+package codility.skt.techx;
 
 import java.util.ArrayList;
 import java.util.List;
